@@ -13,3 +13,12 @@ class Student:
         self.root.title("Patient Records System")
         self.root.geometry("1350x750+0+0")
         self.root.config(bg="skyblue")
+    
+        PID = StringVar()
+        Name = StringVar()
+        DOB = StringVar()
+        Sex = StringVar()
+        Bloodgroup = StringVar()
+        Cash = StringVar()
+        Address = StringVar()
+        Mobile = StringVar()
