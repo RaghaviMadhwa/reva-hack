@@ -2,11 +2,11 @@
 
 from tkinter import*
 import tkinter.messagebox
-import stdDatabase_BackEnd
+import patDatabase_BackEnd
 import tkinter.ttk as ttk 
 
 
-class Student:
+class Patient:
 
     def __init__(self,root):
         self.root = root
