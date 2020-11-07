@@ -1,31 +1,20 @@
 import sqlite3
 #backend
 
+
+import sqlite3
+#backend
+
 def patientData():
     con=sqlite3.connect("patient.db")
     cur= con.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS student(id INTEGER PRIMARY KEY, StdID text, Firstname text, Surname text,DoB text, Age text, Gender text, Address text,Mobile text)")
+    cur.execute("CREATE TABLE IF NOT EXISTS patient(id INTEGER PRIMARY KEY, PID text, Name text, DOB text, Sex text, Bloodgroup text, Address text, Mobile text, Cash text)")
     con.commit()
     con.close()
 
-def addPatRec(StdID , Firstname , Surname ,DoB ,Age ,Gender , Address ,Mobile):
+def addPatRec(PID , Name, DOB, Sex, Bloodgroup, Address ,Mobile, Cash):
     con=sqlite3.connect("patient.db")
     cur =con.cursor()
-    cur.execute("INSERT INTO student VALUES (NULL, ?,?,?,?,?,?,?,?)",(StdID , Firstname , Surname ,DoB ,Age ,Gender , Address ,Mobile))
+    cur.execute("INSERT INTO patient VALUES (NULL, ?,?,?,?,?,?,?,?)",(PID , Name, DOB, Sex, Bloodgroup, Address ,Mobile, Cash))
     con.commit()
     con.close()
-
-def viewData():
-    con=sqlite3.connect("patient.db")
-    cur =con.cursor()
-    cur.execute("SELECT * FROM student")
-    row =cur.fetchall()
-    con.close
-    return row
-
-def deleteRec(id):
-    con=sqlite3.connect("patient.db")
-    cur =con.cursor()
-    cur.execute("DELETE FROM student WHERE id=?",(id,))
-    con.commit()
-    con.close
