@@ -100,3 +100,25 @@ class Patient:
                 patDatabase_BackEnd.addPatRec(PID.get(), Name.get(),DOB.get(),Sex.get(),Bloodgroup.get(), Address.get(),Mobile.get(),Cash.get())
                 patientlist.delete(0,END)
                 patientlist.insert(END,(PID.get(), Name.get(),DOB.get(),Sex.get(),Bloodgroup.get(),Address.get(),Mobile.get(),Cash.get())
+
+        self.btnAddDate = Button(ButtonFrame, text="Add New",  font=('arial',20,'bold'), width=12, height=1, bd=4, command=addData)
+        self.btnAddDate.grid(row=0,column=0)
+        
+        self.btnDisplayData = Button(ButtonFrame, text="Display",  font=('arial',20,'bold'), width=11, height=1, bd=4, command=DisplayData)
+        self.btnDisplayData.grid(row=0,column=1)
+        
+        self.btnClearData = Button(ButtonFrame, text="Clear",  font=('arial',20,'bold'), width=12, height=1, bd=4,command=clearData)
+        self.btnClearData.grid(row=0,column=2)
+        
+        self.btnDeleteData = Button(ButtonFrame, text="Delete",  font=('arial',20,'bold'), width=11, height=1, bd=4, command=DeleteData)
+        self.btnDeleteData.grid(row=0,column=3)
+        
+        self.btnSearchData = Button(ButtonFrame, text="Search",  font=('arial',20,'bold'), width=12, height=1, bd=4,command=searchDatabase)
+        self.btnSearchData.grid(row=0,column=4)
+        
+        self.btnUpdateData = Button(ButtonFrame, text="Update",  font=('arial',20,'bold'), width=11, height=1, bd=4, command=update)
+        self.btnUpdateData.grid(row=0,column=5)
+
+        self.btnExit=Button(ButtonFrame, text="Exit", font=('arial',20,'bold'), height=1, width=12, bd=4, command=iExit)
+        self.btnExit.grid(row=0,column=6)
+        
