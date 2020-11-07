@@ -22,7 +22,14 @@ class Patient:
         Cash = StringVar()
         Address = StringVar()
         Mobile = StringVar()
-
+        
+        scrollbar = Scrollbar(DataFrame2, orient="vertical")
+        scrollbar.grid(row=0,column=1,sticky='ns')
+        patientlist = Listbox(DataFrame2, width=110, height=5, font=('arial',12,'bold'), yscrollcommand=scrollbar.set)
+        patientlist.bind('<<ListboxSelect>>', PatientRec)
+        patientlist.grid(row=0,column=8,padx=8)
+        scrollbar.config(command = patientlist.yview)
+        
         def iExit():
             iExit = tkinter.messagebox.askyesno("Patient Records System","Confirm if you want to exit")
             if iExit > 0:
