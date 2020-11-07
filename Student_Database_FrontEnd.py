@@ -30,6 +30,29 @@ class Patient:
         patientlist.grid(row=0,column=8,padx=8)
         scrollbar.config(command = patientlist.yview)
         
+        
+        MainFrame = Frame(self.root,bg="tan")
+        MainFrame.grid()  
+
+        TitFrame=Frame(MainFrame,bd=10, padx=90, pady=8, bg="papayawhip", relief= RIDGE)
+        TitFrame.pack(side=TOP)
+
+        self.lblTit=Label(TitFrame, width= 55, font=('arial',30,'bold'), text="Patient Records System", bg="papayawhip")
+        self.lblTit.grid()
+
+        ButtonFrame=Frame(MainFrame,bd=10, width=2000, height=60, padx=18, pady=20, bg="papayawhip", relief= RIDGE)
+        ButtonFrame.pack(side=BOTTOM)
+
+        DataFrame=Frame(MainFrame,bd=9, width=2000, height=120, padx=40, pady=40, bg="papayawhip", relief= RIDGE)
+        DataFrame.pack(side=BOTTOM)
+
+        DataFrame1=LabelFrame(DataFrame,bd=6, width= 900, height=4, padx=1, bg="papayawhip", relief= RIDGE, text="Patient Info\n",font=('arial',20,'bold'))
+        DataFrame1.pack(side=TOP)
+
+        DataFrame2=LabelFrame(DataFrame,bd=6, width=900, height=16, padx=1, bg="papayawhip", relief= RIDGE,text="Patient Details\n",font=('arial',20,'bold'))
+        DataFrame2.pack(side=TOP)
+        
+        
         def iExit():
             iExit = tkinter.messagebox.askyesno("Patient Records System","Confirm if you want to exit")
             if iExit > 0:
@@ -101,6 +124,9 @@ class Patient:
                 patientlist.delete(0,END)
                 patientlist.insert(END,(PID.get(), Name.get(),DOB.get(),Sex.get(),Bloodgroup.get(),Address.get(),Mobile.get(),Cash.get())
 
+                                     
+                                      
+                                   
         self.btnAddDate = Button(ButtonFrame, text="Add New",  font=('arial',20,'bold'), width=12, height=1, bd=4, command=addData)
         self.btnAddDate.grid(row=0,column=0)
         
@@ -122,3 +148,49 @@ class Patient:
         self.btnExit=Button(ButtonFrame, text="Exit", font=('arial',20,'bold'), height=1, width=12, bd=4, command=iExit)
         self.btnExit.grid(row=0,column=6)
         
+
+            
+        self.lblPID=Label(DataFrame1, font=('arial',14,'bold'), text="Patient ID", bg="papayawhip",padx=1, pady=2)
+        self.lblPID.grid(row=0, column=0, sticky=W)
+        self.txtPID=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=PID, width=80)
+        self.txtPID.grid(row=0,column=1)
+
+        self.lblna=Label(DataFrame1, font=('arial',14,'bold'), text="Name:", bg="papayawhip",padx=1, pady=2)
+        self.lblna.grid(row=1, column=0, sticky=W)
+        self.txtna=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=Name, width=80)
+        self.txtna.grid(row=1,column=1)
+
+        self.lblDOB=Label(DataFrame1, font=('arial',14,'bold'), text="Date Of Birth:", bg="papayawhip",padx=1, pady=2)
+        self.lblDOB.grid(row=2, column=0, sticky=W)
+        self.txtDOB=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=DOB, width=80)
+        self.txtDOB.grid(row=2,column=1)
+
+        self.lblSex=Label(DataFrame1, font=('arial',14,'bold'), text="Sex:", bg="papayawhip",padx=1, pady=2)
+        self.lblSex.grid(row=3, column=0, sticky=W)
+        self.txtSex=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=Sex, width=80)
+        self.txtSex.grid(row=3,column=1)
+
+        self.lblBloodgroup=Label(DataFrame1, font=('arial',14,'bold'), text="Blood Group:", bg="papayawhip",padx=1, pady=2)
+        self.lblBloodgroup.grid(row=4, column=0, sticky=W)
+        self.txtBloodgroup=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=Bloodgroup, width=80)
+        self.txtBloodgroup.grid(row=4,column=1)
+
+        self.lblAdr=Label(DataFrame1, font=('arial',14,'bold'), text="Address:", bg="papayawhip",padx=1, pady=2)
+        self.lblAdr.grid(row=5, column=0, sticky=W)
+        self.txtAdr=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=Address, width=80)
+        self.txtAdr.grid(row=5,column=1)
+
+        self.lblMobile=Label(DataFrame1, font=('arial',14,'bold'), text="Mobile:", bg="papayawhip",padx=1, pady=2)
+        self.lblMobile.grid(row=6, column=0, sticky=W)
+        self.txtMobile=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=Mobile, width=80)
+        self.txtMobile.grid(row=6,column=1)
+
+        self.lblCash=Label(DataFrame1, font=('arial',14,'bold'), text="Cash paid:", bg="papayawhip",padx=1, pady=2)
+        self.lblCash.grid(row=7, column=0, sticky=W)
+        self.txtCash=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=Cash, width=80)
+        self.txtCash.grid(row=7,column=1)
+                                   
+                                   
+                                   
+                                   
+                                   
