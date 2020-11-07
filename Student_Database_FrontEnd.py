@@ -190,7 +190,10 @@ class Patient:
         self.txtCash=Entry(DataFrame1, font=('arial',14,'bold'),textvariable=Cash, width=80)
         self.txtCash.grid(row=7,column=1)
                                    
-                                   
-                                   
+                       
+if __name__=='__main__':
+    root=Tk()
+    application=Patient(root)
+    root.mainloop()                                   
                                    
                                    
