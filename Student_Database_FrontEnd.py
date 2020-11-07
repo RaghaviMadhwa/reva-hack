@@ -50,3 +50,46 @@ class Patient:
             patientlist.delete(0,END)
             for row in patDatabase_BackEnd.viewData():
               patientlist.insert(END,row,str(""))
+            
+         
+        def PatientRec(event):
+            global sd
+            searchStd= patientlist.curselection()[0]
+            sd= patientlist.get(searchStd)
+
+
+            self.txtPID.delete(0,END)
+            self.txtPID.insert(END,sd[1])
+            self.txtna.delete(0,END)
+            self.txtna.insert(END,sd[2])
+            self.txtDOB.delete(0,END)
+            self.txtDOB.insert(END,sd[3])
+            self.txtSex.delete(0,END)
+            self.txtSex.insert(END,sd[4])
+            self.txtBloodgroup.delete(0,END)
+            self.txtBloodgroup.insert(END,sd[5])
+            self.txtCash.delete(0,END)
+            self.txtCash.insert(END,sd[6])
+            self.txtAdr.delete(0,END)
+            self.txtAdr.insert(END,sd[7])
+            self.txtMobile.delete(0,END)
+            self.txtMobile.insert(END,sd[8])
+
+        def DeleteData():
+            if(len(PID.get())!=0):
+                patDatabase_BackEnd.deleteRec(sd[0])
+                clearData()
+                DisplayData()
+
+        def searchDatabase():
+             patientlist.delete(0,END)
+             for row in patDatabase_BackEnd.searchData(PID.get(), Name.get(),DOB.get(),Sex.get(),Bloodgroup.get(),Address.get(),Mobile.get(),Cash.get()):
+                 patientlist.insert(END,row,str(""))
+
+        def update():
+            if(len(PID.get())!=0):
+                patDatabase_BackEnd.deleteRec(sd[0])
+            if(len(PID.get())!=0):
+                patDatabase_BackEnd.addPatRec(PID.get(), Name.get(),DOB.get(),Sex.get(),Bloodgroup.get(), Address.get(),Mobile.get(),Cash.get())
+                patientlist.delete(0,END)
+                patientlist.insert(END,(PID.get(), Name.get(),DOB.get(),Sex.get(),Bloodgroup.get(),Address.get(),Mobile.get(),Cash.get())
